@@ -11,12 +11,15 @@
 		"vscode": {
 			"extensions": [
 				"ms-python.python",
-				"ms-python.debugpy",
-				"zxh404.vscode-proto3"
+				"ms-python.debugpy"				
 			]
 		}
 	},
-	"runArgs": ["--network=host"]
+	"runArgs": ["--network=host",
+				"--rm",			
+				"--gpus",
+				"all",
+				"--runtime=nvidia"]
 
 	
 

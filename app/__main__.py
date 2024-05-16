@@ -1,15 +1,11 @@
 import tensorflow as tf
 from tensorflow.python.client import device_lib
 
-
-def get_available_gpus():
-    local_device_protos = device_lib.list_local_devices()
-    return [x.name for x in local_device_protos if x.device_type == 'GPU']
-
-
 def main() -> None:
         print("-------------- Hello Tensorflow Container --------------")                 
-        get_available_gpus()
+        gpu_devices = tf.config.experimental.list_physical_devices('GPU')
+        for device in gpu_devices:
+            print(gpu_devices)
 
 if __name__ == "__main__":
     main()

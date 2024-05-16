@@ -1,5 +1,6 @@
 # For more information, please refer to https://aka.ms/vscode-docker-python
 FROM tensorflow/tensorflow:latest-gpu-jupyter
+#FROM ubuntu:latest
 
 # Keeps Python from generating .pyc files in the container
 ENV PYTHONDONTWRITEBYTECODE=1
@@ -19,8 +20,9 @@ COPY ./app /app
 
 # Creates a non-root user with an explicit UID and adds permission to access the /app folder
 # For more info, please refer to https://aka.ms/vscode-docker-python-configure-containers
-RUN adduser -u 5678 --disabled-password --gecos "" appuser && chown -R appuser /app
-USER appuser
+# RUN adduser -u 5678 --disabled-password --gecos "" appuser && chown -R appuser /app
+# USER appuser
 
 # During debugging, this entry point will be overridden. For more information, please refer to https://aka.ms/vscode-docker-python-debug
-CMD ["python", "__main__.py"]
+# CMD ["python", "__main__.py"]
+CMD ["nvidia-smi"]
